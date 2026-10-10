@@ -31832,6 +31832,12 @@
           }
         }
       },
+      "GrpcConfig": {
+        "name": "GrpcConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.GrpcConfig"
+        }
+      },
       "LambdaFunctionAssociations": {
         "name": "LambdaFunctionAssociations",
         "valueType": {
@@ -31908,6 +31914,74 @@
       },
       "ViewerProtocolPolicy": {
         "name": "ViewerProtocolPolicy",
+        "valueType": {
+          "primitive": "string"
+        },
+        "required": true
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.CacheTagConfigProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.CacheTagConfigProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.CacheTagConfigProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_CacheTagConfigProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.CacheTagConfigProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.CacheTagConfigProperty"
+      }
+    },
+    "properties": {
+      "HeaderName": {
+        "name": "HeaderName",
+        "valueType": {
+          "primitive": "string"
+        },
+        "required": true
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.ConnectionFunctionAssociationProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.ConnectionFunctionAssociationProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.ConnectionFunctionAssociationProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_ConnectionFunctionAssociationProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.ConnectionFunctionAssociationProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.ConnectionFunctionAssociationProperty"
+      }
+    },
+    "properties": {
+      "Id": {
+        "name": "Id",
         "valueType": {
           "primitive": "string"
         },
@@ -32046,10 +32120,22 @@
           "primitive": "number"
         }
       },
+      "IpAddressType": {
+        "name": "IpAddressType",
+        "valueType": {
+          "primitive": "string"
+        }
+      },
       "OriginKeepaliveTimeout": {
         "name": "OriginKeepaliveTimeout",
         "valueType": {
           "primitive": "number"
+        }
+      },
+      "OriginMtlsConfig": {
+        "name": "OriginMtlsConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.OriginMtlsConfig"
         }
       },
       "OriginProtocolPolicy": {
@@ -32154,6 +32240,12 @@
           }
         }
       },
+      "GrpcConfig": {
+        "name": "GrpcConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.GrpcConfig"
+        }
+      },
       "LambdaFunctionAssociations": {
         "name": "LambdaFunctionAssociations",
         "valueType": {
@@ -32230,6 +32322,39 @@
       }
     }
   },
+  "AWS::CloudFront::Distribution.DefinitionProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.DefinitionProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.DefinitionProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_DefinitionProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.DefinitionProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.DefinitionProperty"
+      }
+    },
+    "properties": {
+      "StringSchema": {
+        "name": "StringSchema",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.StringSchema"
+        }
+      }
+    }
+  },
   "AWS::CloudFront::Distribution.DistributionConfigProperty": {
     "name": {
       "typescript": {
@@ -32263,6 +32388,12 @@
           }
         }
       },
+      "AnycastIpListId": {
+        "name": "AnycastIpListId",
+        "valueType": {
+          "primitive": "string"
+        }
+      },
       "CNAMEs": {
         "name": "CNAMEs",
         "valueType": {
@@ -32279,8 +32410,26 @@
           }
         }
       },
+      "CacheTagConfig": {
+        "name": "CacheTagConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.CacheTagConfig"
+        }
+      },
       "Comment": {
         "name": "Comment",
+        "valueType": {
+          "primitive": "string"
+        }
+      },
+      "ConnectionFunctionAssociation": {
+        "name": "ConnectionFunctionAssociation",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.ConnectionFunctionAssociation"
+        }
+      },
+      "ConnectionMode": {
+        "name": "ConnectionMode",
         "valueType": {
           "primitive": "string"
         }
@@ -32381,10 +32530,22 @@
           "primitive": "boolean"
         }
       },
+      "TenantConfig": {
+        "name": "TenantConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.TenantConfig"
+        }
+      },
       "ViewerCertificate": {
         "name": "ViewerCertificate",
         "valueType": {
           "named": "AWS::CloudFront::Distribution.ViewerCertificate"
+        }
+      },
+      "ViewerMtlsConfig": {
+        "name": "ViewerMtlsConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.ViewerMtlsConfig"
         }
       },
       "WebACLId": {
@@ -32527,6 +32688,40 @@
         "name": "RestrictionType",
         "valueType": {
           "primitive": "string"
+        },
+        "required": true
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.GrpcConfigProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.GrpcConfigProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.GrpcConfigProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_GrpcConfigProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.GrpcConfigProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.GrpcConfigProperty"
+      }
+    },
+    "properties": {
+      "Enabled": {
+        "name": "Enabled",
+        "valueType": {
+          "primitive": "boolean"
         },
         "required": true
       }
@@ -32708,8 +32903,7 @@
         "name": "Bucket",
         "valueType": {
           "primitive": "string"
-        },
-        "required": true
+        }
       },
       "IncludeCookies": {
         "name": "IncludeCookies",
@@ -32922,6 +33116,12 @@
           "named": "AWS::CloudFront::Distribution.OriginGroupMembers"
         },
         "required": true
+      },
+      "SelectionCriteria": {
+        "name": "SelectionCriteria",
+        "valueType": {
+          "primitive": "string"
+        }
       }
     }
   },
@@ -32962,6 +33162,40 @@
         "name": "Quantity",
         "valueType": {
           "primitive": "number"
+        },
+        "required": true
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.OriginMtlsConfigProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.OriginMtlsConfigProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.OriginMtlsConfigProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_OriginMtlsConfigProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.OriginMtlsConfigProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.OriginMtlsConfigProperty"
+      }
+    },
+    "properties": {
+      "ClientCertificateArn": {
+        "name": "ClientCertificateArn",
+        "valueType": {
+          "primitive": "string"
         },
         "required": true
       }
@@ -33050,10 +33284,22 @@
           "named": "AWS::CloudFront::Distribution.OriginShield"
         }
       },
+      "ResponseCompletionTimeout": {
+        "name": "ResponseCompletionTimeout",
+        "valueType": {
+          "primitive": "number"
+        }
+      },
       "S3OriginConfig": {
         "name": "S3OriginConfig",
         "valueType": {
           "named": "AWS::CloudFront::Distribution.S3OriginConfig"
+        }
+      },
+      "VpcOriginConfig": {
+        "name": "VpcOriginConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.VpcOriginConfig"
         }
       }
     }
@@ -33094,6 +33340,47 @@
         "valueType": {
           "primitive": "string"
         }
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.ParameterDefinitionProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.ParameterDefinitionProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.ParameterDefinitionProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_ParameterDefinitionProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.ParameterDefinitionProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.ParameterDefinitionProperty"
+      }
+    },
+    "properties": {
+      "Definition": {
+        "name": "Definition",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.Definition"
+        },
+        "required": true
+      },
+      "Name": {
+        "name": "Name",
+        "valueType": {
+          "primitive": "string"
+        },
+        "required": true
       }
     }
   },
@@ -33161,6 +33448,12 @@
         "valueType": {
           "primitive": "string"
         }
+      },
+      "OriginReadTimeout": {
+        "name": "OriginReadTimeout",
+        "valueType": {
+          "primitive": "number"
+        }
       }
     }
   },
@@ -33202,6 +33495,133 @@
         "name": "Quantity",
         "valueType": {
           "primitive": "number"
+        },
+        "required": true
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.StringSchemaProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.StringSchemaProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.StringSchemaProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_StringSchemaProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.StringSchemaProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.StringSchemaProperty"
+      }
+    },
+    "properties": {
+      "Comment": {
+        "name": "Comment",
+        "valueType": {
+          "primitive": "string"
+        }
+      },
+      "DefaultValue": {
+        "name": "DefaultValue",
+        "valueType": {
+          "primitive": "string"
+        }
+      },
+      "Required": {
+        "name": "Required",
+        "valueType": {
+          "primitive": "boolean"
+        },
+        "required": true
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.TenantConfigProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.TenantConfigProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.TenantConfigProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_TenantConfigProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.TenantConfigProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.TenantConfigProperty"
+      }
+    },
+    "properties": {
+      "ParameterDefinitions": {
+        "name": "ParameterDefinitions",
+        "valueType": {
+          "listOf": {
+            "named": "AWS::CloudFront::Distribution.ParameterDefinition"
+          }
+        }
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.TrustStoreConfigProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.TrustStoreConfigProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.TrustStoreConfigProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_TrustStoreConfigProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.TrustStoreConfigProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.TrustStoreConfigProperty"
+      }
+    },
+    "properties": {
+      "AdvertiseTrustStoreCaNames": {
+        "name": "AdvertiseTrustStoreCaNames",
+        "valueType": {
+          "primitive": "boolean"
+        }
+      },
+      "IgnoreCertificateExpiry": {
+        "name": "IgnoreCertificateExpiry",
+        "valueType": {
+          "primitive": "boolean"
+        }
+      },
+      "TrustStoreId": {
+        "name": "TrustStoreId",
+        "valueType": {
+          "primitive": "string"
         },
         "required": true
       }
@@ -33261,6 +33681,97 @@
         "valueType": {
           "primitive": "string"
         }
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.ViewerMtlsConfigProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.ViewerMtlsConfigProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.ViewerMtlsConfigProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_ViewerMtlsConfigProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.ViewerMtlsConfigProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.ViewerMtlsConfigProperty"
+      }
+    },
+    "properties": {
+      "Mode": {
+        "name": "Mode",
+        "valueType": {
+          "primitive": "string"
+        }
+      },
+      "TrustStoreConfig": {
+        "name": "TrustStoreConfig",
+        "valueType": {
+          "named": "AWS::CloudFront::Distribution.TrustStoreConfig"
+        }
+      }
+    }
+  },
+  "AWS::CloudFront::Distribution.VpcOriginConfigProperty": {
+    "name": {
+      "typescript": {
+        "module": "aws-cdk-lib/aws-cloudfront",
+        "name": "CfnDistribution.VpcOriginConfigProperty"
+      },
+      "csharp": {
+        "namespace": "Amazon.CDK.AWS.CloudFront",
+        "name": "CfnDistribution.VpcOriginConfigProperty"
+      },
+      "golang": {
+        "module": "github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront",
+        "package": "awscloudfront",
+        "name": "CfnDistribution_VpcOriginConfigProperty"
+      },
+      "java": {
+        "package": "software.amazon.awscdk.services.cloudfront",
+        "name": "CfnDistribution.VpcOriginConfigProperty"
+      },
+      "python": {
+        "module": "aws_cdk.aws_cloudfront",
+        "name": "CfnDistribution.VpcOriginConfigProperty"
+      }
+    },
+    "properties": {
+      "OriginKeepaliveTimeout": {
+        "name": "OriginKeepaliveTimeout",
+        "valueType": {
+          "primitive": "number"
+        }
+      },
+      "OriginReadTimeout": {
+        "name": "OriginReadTimeout",
+        "valueType": {
+          "primitive": "number"
+        }
+      },
+      "OwnerAccountId": {
+        "name": "OwnerAccountId",
+        "valueType": {
+          "primitive": "string"
+        }
+      },
+      "VpcOriginId": {
+        "name": "VpcOriginId",
+        "valueType": {
+          "primitive": "string"
+        },
+        "required": true
       }
     }
   },
