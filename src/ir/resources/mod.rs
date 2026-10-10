@@ -130,7 +130,11 @@ impl<'a, 'b> ResourceTranslator<'a, 'b> {
                 let mut is_resource_ir_array = false;
                 let property_bag: Box<dyn PropertyBag> = match &self.value_type {
                     Some(TypeReference::Named(name)) => {
-                        Box::new(self.schema.type_named(name).cloned().unwrap())
+                        Box::new(self.schema.type_named(name).cloned().ok_or_else(|| {
+                            Error::ResourceTranslationError {
+                                message: format!("{name} is not a known type"),
+                            }
+                        })?)
                     }
                     Some(TypeReference::Map(item_type)) => Box::new(MapOf(item_type)),
                     Some(TypeReference::List(item_type)) => {
@@ -152,6 +156,13 @@ impl<'a, 'b> ResourceTranslator<'a, 'b> {
                 let mut new_hash = IndexMap::with_capacity_and_hasher(o.len(), Hasher::default());
                 for (s, rv) in o {
                     let property_type = property_bag.property(&s);
+                    if let (None, ResourceValue::Object(_), Some(TypeReference::Named(name))) =
+                        (&property_type, &rv, &self.value_type)
+                    {
+                        return Err(Error::ResourceTranslationError {
+                            message: format!("{s} is not a valid property of type {name}"),
+                        });
+                    }
                     let property_ir = Self {
                         schema: self.schema,
                         origins: self.origins,

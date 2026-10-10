@@ -526,6 +526,89 @@ fn test_standard_resource_invalid_property() {
         .contains("is not a valid property for resource MyBucket"));
 }
 
+fn default_cache_behavior_translator(origins: &ReferenceOrigins) -> ResourceTranslator<'_, '_> {
+    ResourceTranslator {
+        schema: Schema::builtin(),
+        origins,
+        value_type: Some(TypeReference::Named(
+            "AWS::CloudFront::Distribution.DefaultCacheBehavior".into(),
+        )),
+    }
+}
+
+fn object_value(entries: Vec<(&str, ResourceValue)>) -> ResourceValue {
+    ResourceValue::Object(entries.into_iter().map(|(k, v)| (k.into(), v)).collect())
+}
+
+#[test]
+fn test_cloudfront_grpc_config() {
+    let origins = ReferenceOrigins {
+        origins: HashMap::default(),
+    };
+    let resource_value = object_value(vec![(
+        "GrpcConfig",
+        object_value(vec![("Enabled", ResourceValue::Bool(false))]),
+    )]);
+
+    let result = default_cache_behavior_translator(&origins)
+        .translate(resource_value)
+        .unwrap();
+
+    match result {
+        ResourceIr::Object(_, entries) => assert_eq!(
+            entries.get("GrpcConfig"),
+            Some(&ResourceIr::Object(
+                TypeReference::Named("AWS::CloudFront::Distribution.GrpcConfig".into()),
+                [("Enabled".to_string(), ResourceIr::Bool(false))]
+                    .into_iter()
+                    .collect(),
+            ))
+        ),
+        other => panic!("Expected Object, got {:?}", other),
+    }
+}
+
+#[test]
+fn test_nested_invalid_object_property() {
+    let origins = ReferenceOrigins {
+        origins: HashMap::default(),
+    };
+    let resource_value = object_value(vec![(
+        "FakeConfig",
+        object_value(vec![("Enabled", ResourceValue::Bool(false))]),
+    )]);
+
+    let err = default_cache_behavior_translator(&origins)
+        .translate(resource_value)
+        .unwrap_err();
+
+    assert_eq!(
+        "FakeConfig is not a valid property of type AWS::CloudFront::Distribution.DefaultCacheBehavior",
+        err.to_string()
+    );
+}
+
+#[test]
+fn test_unknown_named_type() {
+    let origins = ReferenceOrigins {
+        origins: HashMap::default(),
+    };
+    let translator = ResourceTranslator {
+        schema: Schema::builtin(),
+        origins: &origins,
+        value_type: Some(TypeReference::Named("AWS::Fake::Resource.Type".into())),
+    };
+
+    let err = translator
+        .translate(object_value(vec![("Key", ResourceValue::Bool(true))]))
+        .unwrap_err();
+
+    assert_eq!(
+        "AWS::Fake::Resource.Type is not a known type",
+        err.to_string()
+    );
+}
+
 // --- AWS::CloudFormation::CustomResource Tests ---
 
 use crate::ir::resources::CFN_CUSTOM_RESOURCE;
